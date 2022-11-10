@@ -44,8 +44,7 @@ TBD
 
 ## Database Structure
 
-![database]()
-### < TBD >
+![database](app/assets/images/database.png)
 
 ## Deployment
 - `rails s`
