@@ -20,7 +20,7 @@ require 'action_cable/engine'
 Bundler.require(*Rails.groups)
 
 module LunchAndLearn
-  class Application < Rails::Application
+  class Application < Rails::Application # rubocop:todo Style/Documentation
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
