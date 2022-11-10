@@ -1,4 +1,6 @@
-class CreateFavorites < ActiveRecord::Migration[5.2]
+# frozen_string_literal: true
+
+class CreateFavorites < ActiveRecord::Migration[5.2] # rubocop:todo Style/Documentation
   def change
     create_table :favorites do |t|
       t.string :country
