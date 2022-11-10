@@ -5,19 +5,49 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
+######################
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+######################
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
 
 # Ignore uploaded files in development
+######################
 /storage/*
 !/storage/.keep
 
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
+######################
 /config/master.key
+
+# Ignore .idea
+######################
+.idea
+
+# Ignore Coverage
+######################
+coverage
+/coverage/
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+# General
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Ignore application configuration
+/config/application.yml
