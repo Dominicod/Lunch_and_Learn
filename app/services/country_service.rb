@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class CountryService
-  def self.random
-    parse(conn.get('/v3.1/all', { fields: 'name' }))
+  def self.country_list
+    parse(conn.get('/v3.1/all?fields=name'))
   end
 
   def self.parse(response)
