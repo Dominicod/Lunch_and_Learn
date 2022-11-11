@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Country
+class Country # rubocop:todo Style/Documentation
   attr_reader :name
 
   def initialize(response)

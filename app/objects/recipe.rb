@@ -1,4 +1,6 @@
-class Recipe
+# frozen_string_literal: true
+
+class Recipe # rubocop:todo Style/Documentation
   attr_reader :title,
               :url,
               :country,
