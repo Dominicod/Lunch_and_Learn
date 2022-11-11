@@ -4,6 +4,6 @@ class Country
   attr_reader :name
 
   def initialize(response)
-    @name = response.dig(:data, :name, :official)
+    @name = response.dig(:name, :official)
   end
 end
