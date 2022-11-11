@@ -3,7 +3,7 @@
 module Api
   module V1
     class RecipesController < ApplicationController
-      def show
+      def index
         render json: RecipeSerializer.new(RecipeFacade.create_recipes(country_params))
       end
 

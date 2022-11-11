@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 class Recipe # rubocop:todo Style/Documentation
-  attr_reader :title,
+  attr_reader :id,
+              :title,
               :url,
               :country,
               :image
 
   def initialize(response, query)
-    @title = response.dig(:recipe, :label)
-    @url = response.dig(:recipe, :url)
-    @country = query
-    @image = response.dig(:recipe, :image)
+    @id = nil
+    @title = response[:label]
+    @url = response[:url]
+    @country = query[:country]
+    @image = response[:image]
   end
 end
