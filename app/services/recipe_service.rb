@@ -2,7 +2,7 @@
 
 class RecipeService
   def self.recipes(country)
-    parse(conn.get('api/recipes/v2', { q: country }))
+    parse(conn.get("api/recipes/v2?q=#{country}"))
   end
 
   def self.parse(response)
@@ -10,9 +10,13 @@ class RecipeService
   end
 
   def self.conn
-    Faraday.new('https://api.edamam.com/', {
-                  app_id: ENV['APP_ID'],
-                  app_key: ENV['APP_KEY']
-                })
+    Faraday.new(
+      url: 'https://api.edamam.com/',
+      params: {
+        app_id: ENV['ED_APP_ID'],
+        app_key: ENV['ED_APP_KEY'],
+        type: 'public'
+      }
+    )
   end
 end
