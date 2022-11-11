@@ -33,6 +33,10 @@ TBD
 
 
 ## Set Up
+
+#### API Keys:
+* https://developer.edamam.com/edamam-docs-recipe-api (`ED_APP_ID`, `ED_APP_KEY`)
+
 - Clone this repo
 - `bundle install`
 - `bundle exec figaro install`
