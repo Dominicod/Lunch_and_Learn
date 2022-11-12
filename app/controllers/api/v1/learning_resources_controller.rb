@@ -6,6 +6,12 @@ module Api
       def index
 
       end
+
+      private
+
+      def query_params
+        params.permit(:country)
+      end
     end
   end
 end
