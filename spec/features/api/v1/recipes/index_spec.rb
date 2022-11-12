@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Recipes | Index', :vcr, type: :request do
   describe 'As a User, when I visit /recipes' do
     describe 'and then enter the query param of ?country=thailand (Happy Path)' do
-      let!(:recipes_response) do
+      let(:recipes_response) do
         get api_v1_recipes_path, params: { country: 'thailand' }
         JSON.parse(response.body, symbolize_names: true)
       end
@@ -24,7 +24,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
     end
 
     describe 'and then enter the query param of ?country=notarealcountryatall (Sad Path)' do
-      let!(:recipes_response) do
+      let(:recipes_response) do
         get api_v1_recipes_path, params: { country: 'notarealcountryatall' }
         JSON.parse(response.body, symbolize_names: true)
       end

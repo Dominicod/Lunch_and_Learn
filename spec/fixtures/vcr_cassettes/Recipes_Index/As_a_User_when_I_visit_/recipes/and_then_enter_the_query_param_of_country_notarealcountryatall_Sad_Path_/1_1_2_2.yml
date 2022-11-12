@@ -15,17 +15,17 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 429
+      code: 200
       message: ''
     headers:
       Server:
       - openresty
       Date:
-      - Sat, 12 Nov 2022 00:19:17 GMT
+      - Sat, 12 Nov 2022 18:46:14 GMT
       Content-Type:
-      - application/json;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
+      - application/json
+      Content-Length:
+      - '49'
       Connection:
       - keep-alive
       Cache-Control:
@@ -33,13 +33,13 @@ http_interactions:
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Served-By:
-      - ip-10-0-1-125.ec2.internal/10.0.1.125
-      Vary:
-      - accept-encoding
+      - ip-10-0-1-36.ec2.internal/10.0.1.36
       Strict-Transport-Security:
       - max-age=15552001
+      X-Request-Id:
+      - a94052e00ee0397512aa23ba196401dc
     body:
-      encoding: ASCII-8BIT
-      string: '{"status":"error","message":"Usage limits are exceeded"}'
-  recorded_at: Sat, 12 Nov 2022 00:19:17 GMT
+      encoding: UTF-8
+      string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
+  recorded_at: Sat, 12 Nov 2022 18:46:14 GMT
 recorded_with: VCR 6.1.0
