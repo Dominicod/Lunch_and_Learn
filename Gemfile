@@ -45,9 +45,8 @@ group :test do
   gem 'faker'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'rubocop-faker'
+  gem 'rubocop-faker', require: true
   gem 'rubocop-rails', require: true
-  gem 'rubocop-rspec', require: true
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'vcr'

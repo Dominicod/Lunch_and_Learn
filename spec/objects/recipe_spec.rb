@@ -6,7 +6,7 @@ RSpec.describe Recipe, :vcr, type: :object do
   let(:query) { 'United States' }
   let(:recipe_object) do
     response = RecipeService.recipes(query)
-    described_class.new(response[:hits][0], query)
+    described_class.new(response[:hits][0][:recipe], query)
   end
 
   describe 'Instantiation' do
