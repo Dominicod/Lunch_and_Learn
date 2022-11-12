@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require 'cgi'
+
 class RecipeService # rubocop:todo Style/Documentation
   def self.recipes(country)
-    parse(conn.get("api/recipes/v2?q=#{country}"))
+    parse(conn.get("api/recipes/v2?q=#{CGI.escape(country)}"))
   end
 
   def self.parse(response)
