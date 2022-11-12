@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class RecipesController < ApplicationController
+    class RecipesController < ApplicationController # rubocop:todo Style/Documentation
       before_action :random_country, only: [:index]
       def index
         render json: RecipeSerializer.new(RecipeFacade.create_recipes(query_params[:country]))
