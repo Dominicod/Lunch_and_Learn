@@ -11,7 +11,7 @@ class Recipe # rubocop:todo Style/Documentation
     @id = nil
     @title = response[:label]
     @url = response[:url]
-    @country = query[:country]
+    @country = query
     @image = response[:image]
   end
 end
