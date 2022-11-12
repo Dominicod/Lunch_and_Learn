@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class RecipeService # rubocop:todo Style/Documentation
+  include ServiceHelperModule
   def self.recipes(country)
-    parse(conn.get("api/recipes/v2?q=#{encode_uri(country)}"))
+    parse(conn.get("api/recipes/v2?q=#{ServiceHelperModule.encode_uri(country)}"))
   end
 
   def self.parse(response)

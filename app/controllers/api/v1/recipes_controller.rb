@@ -17,10 +17,6 @@ module Api
       def random_country
         params[:country] = CountryFacade.random_country.name if params[:country].nil?
       end
-
-      def valid_country?
-
-      end
     end
   end
 end

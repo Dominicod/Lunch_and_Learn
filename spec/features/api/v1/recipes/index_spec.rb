@@ -72,36 +72,33 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
         end
       end
     end
-  end
 
-  context('Edge Case') do
-    describe 'and then I insert a non-ASCII supported list of characters into params (Edge Case)' do
-      let!(:recipes_response) do
-        get api_v1_recipes_path, params: { country: 'دولة الكويت' }
-        JSON.parse(response.body, symbolize_names: true)
+    context('Edge Case') do
+      describe 'and then I insert a non-ASCII supported list of characters into params (Edge Case)' do
+        let!(:recipes_response) do
+          get api_v1_recipes_path, params: { country: 'دولة الكويت' }
+          JSON.parse(response.body, symbolize_names: true)
+        end
+
+        it { expect(response).to have_http_status :ok }
+
+        it 'has correct attributes' do
+          expect(recipes_response).to have_key(:data)
+          expect(recipes_response[:data]).to eq []
+        end
       end
 
-      it { expect(response).to have_http_status :ok }
+      describe 'and then I enter a incorrect country name and then it' do
+        let!(:recipes_response) do
+          get api_v1_recipes_path, params: { country: 'Ohio' }
+          JSON.parse(response.body, symbolize_names: true)
+        end
 
-      it 'has correct attributes' do
-        expect(recipes_response).to have_key(:data)
-        expect(recipes_response[:data]).to eq []
-      end
-    end
+        xit { expect(response).to have_http_status :not_found }
 
-    describe 'and then I enter a incorrect country name and then it' do
-      let!(:recipes_response) do
-        get api_v1_recipes_path, params: { country: 'Ohio' }
-        JSON.parse(response.body, symbolize_names: true)
-      end
-
-      it { expect(response).to have_http_status :not_found }
-
-      it 'has correct attributes' do
-        binding.pry
-        # expect(recipes_response).to have_key(:data)
-        # expect(recipes_response[:data]).to eq []
+        xit 'has correct attributes'
       end
     end
   end
+
 end
