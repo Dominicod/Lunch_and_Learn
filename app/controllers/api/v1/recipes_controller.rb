@@ -4,10 +4,7 @@ module Api
   module V1
     class RecipesController < ApplicationController
       def index
-        recipes = RecipeFacade.create_recipes(country_params)
-
-        render json: RecipeSerializer.new(recipes) if recipes
-        render json: { data: [] } unless recipes
+        render json: RecipeSerializer.new(RecipeFacade.create_recipes(country_params))
       end
 
       private
