@@ -74,7 +74,7 @@
 
 ## Recipe End Points
 
-### Recipe Index
+### Recipes Index
 Returns an index of recipes for a randomly selected country
 
 *If a country does not have recipes, an empty array is returned*
