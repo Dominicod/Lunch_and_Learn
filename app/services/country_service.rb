@@ -5,6 +5,10 @@ class CountryService # rubocop:todo Style/Documentation
     parse(conn.get('/v3.1/all?fields=name'))
   end
 
+  def self.valid_country?(country)
+    parse(conn.get("/v3.1/name/#{encode_uri(country)}"))
+  end
+
   def self.parse(response)
     JSON.parse(response.body, symbolize_names: true)
   end
