@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class LearningResourcesController < ApplicationController
+    class LearningResourcesController < ApplicationController # rubocop:todo Style/Documentation
       def index
         render json: LearningResourceSerializer.new(
           LearningResourceFacade.create_learning_resource(query_params[:country])

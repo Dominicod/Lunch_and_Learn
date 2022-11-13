@@ -33,7 +33,7 @@ RSpec.describe 'Learning Resources | Index', :vcr, type: :request do # rubocop:t
       end
     end
 
-    context('Sad Path') do # rubocop:todo Metrics/BlockLength
+    context('Sad Path') do
       describe 'I enter ?country=thisisnotacountry and then it' do
         let!(:lr_response) do
           get api_v1_learning_resources_path, params: { country: 'thisisnotacountry' }
