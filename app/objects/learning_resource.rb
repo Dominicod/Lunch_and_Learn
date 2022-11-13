@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Recipe # rubocop:todo Style/Documentation
+class LearningResource # rubocop:todo Style/Documentation
   attr_reader :id,
               :country,
               :video,
@@ -10,6 +10,6 @@ class Recipe # rubocop:todo Style/Documentation
     @id = nil
     @country = query
     @video = video
-    @images = []
+    @images = images
   end
 end
