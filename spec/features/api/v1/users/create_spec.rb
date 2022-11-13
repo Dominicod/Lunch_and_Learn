@@ -99,6 +99,37 @@ RSpec.describe 'Users | Create', type: :request do
           expect(error_response[:errors][0][:code]).to eq 400
         end
       end
+
+      describe 'and I do not enter correct attributes' do
+        let(:user) do
+          {
+            "name": 'Athena Dao',
+            "email": 'athenadao@bestgirlever.com'
+          }
+        end
+        let(:headers) { { CONTENT_TYPE: 'application/json' } }
+
+        it "doesn't create a new user if correct params are missing" do
+          post api_v1_users_path, headers: headers, params: JSON.generate(user: user)
+
+          expect do
+            post api_v1_users_path, headers: headers, params: JSON.generate(user: user)
+          end.to change(User, :count).by(0)
+        end
+
+        it 'returns correct error message' do
+          post api_v1_users_path, headers: headers, params: JSON.generate(user: user)
+
+          expect(response).to have_http_status :unprocessable_entity
+
+          error_response = JSON.parse(response.body, symbolize_names: true)
+
+          expect(error_response).to have_key :errors
+          expect(error_response[:errors][0][:status]).to eq 'Unprocessable Entity'
+          expect(error_response[:errors][0][:message][0]).to eq "Password digest can't be blank"
+          expect(error_response[:errors][0][:code]).to eq 422
+        end
+      end
     end
   end
 end
