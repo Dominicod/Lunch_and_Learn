@@ -4,7 +4,13 @@ module Api
   module V1
     class UsersController < ApplicationController
       def create
-        render json: UserSerializer.new()
+        render json: UserSerializer.new(User.create(user_params))
+      end
+
+      private
+
+      def user_params
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
       end
     end
   end
