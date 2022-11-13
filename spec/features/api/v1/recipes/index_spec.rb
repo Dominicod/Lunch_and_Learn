@@ -97,7 +97,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
 
         xit { expect(response).to have_http_status :not_found }
 
-        xit 'has correct attributes'
+        xit 'it returns an array, stating the country does not exist'
       end
     end
   end

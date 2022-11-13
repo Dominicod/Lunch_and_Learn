@@ -14,7 +14,7 @@ class VideoService # rubocop:todo Style/Documentation
     Faraday.new(
       url: 'https://www.googleapis.com/youtube/v3/search',
       params: {
-        key: ENV['GOOGLE_APP_KEY'],
+        key: ENV['GOOGLE_API_KEY'],
         channelId: 'UCluQ5yInbeAkkeCndNnUhpw',
         part: 'snippet',
         maxResults: 1
