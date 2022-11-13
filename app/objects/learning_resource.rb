@@ -9,7 +9,7 @@ class Recipe # rubocop:todo Style/Documentation
   def initialize(images, video, query)
     @id = nil
     @country = query
-    @video = []
+    @video = video
     @images = []
   end
 end
