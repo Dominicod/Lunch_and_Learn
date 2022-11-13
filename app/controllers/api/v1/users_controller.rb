@@ -4,7 +4,9 @@ module Api
   module V1
     class UsersController < ApplicationController
       def create
-        render json: UserSerializer.new(User.create(user_params))
+        user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: UserSerializer.new(user)
       end
 
       private
