@@ -29,12 +29,12 @@ RSpec.describe 'Users | Create', type: :request do
           user_response = JSON.parse(response.body, symbolize_names: true)
 
           expect(user_response).to have_key :data
-          expect(user_response[:type]).to eq 'user'
-          expect(user_response).to have_key :id
-          expect(user_response).to have_key :attributes
-          expect(user_response[:attributes][:name]).to eq user[:name]
-          expect(user_response[:attributes][:email]).to eq user[:email]
-          expect(user_response[:attributes][:api_key]).to be_an String
+          expect(user_response.dig(:data, :type)).to eq 'user'
+          expect(user_response[:data]).to have_key :id
+          expect(user_response[:data]).to have_key :attributes
+          expect(user_response.dig(:data, :attributes, :name)).to eq user[:name]
+          expect(user_response.dig(:data, :attributes, :email)).to eq user[:email]
+          expect(user_response.dig(:data, :attributes, :api_key)).to be_an String
         end
       end
     end

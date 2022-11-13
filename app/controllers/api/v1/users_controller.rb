@@ -6,13 +6,15 @@ module Api
       def create
         user = User.create!(user_params)
         session[:user_id] = user.id
-        render json: UserSerializer.new(user)
+        render json: UserSerializer.new(user), status: :created
       end
 
       private
 
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user)
+              .permit(:name, :email, :password, :password_confirmation)
+              .with_defaults(api_key: SecureRandom.hex(15))
       end
     end
   end
