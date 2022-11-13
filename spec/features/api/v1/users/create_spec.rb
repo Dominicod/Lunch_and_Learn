@@ -67,9 +67,9 @@ RSpec.describe 'Users | Create', type: :request do
           error_response = JSON.parse(response.body, symbolize_names: true)
 
           expect(error_response).to have_key :errors
-          expect(error_response.dig(:errors, :status)).to eq 'Unprocessable Entity'
-          expect(error_response.dig(:errors, :message)).to eq 'Validation failed: Email has already been taken'
-          expect(error_response.dig(:errors, :code)).to eq 422
+          expect(error_response[:errors][0][:status]).to eq 'Unprocessable Entity'
+          expect(error_response[:errors][0][:message][0]).to eq 'Email has already been taken'
+          expect(error_response[:errors][0][:code]).to eq 422
         end
       end
     end
