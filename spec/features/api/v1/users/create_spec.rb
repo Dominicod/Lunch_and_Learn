@@ -89,13 +89,13 @@ RSpec.describe 'Users | Create', type: :request do
         it 'returns correct error message' do
           post api_v1_users_path, headers: headers, params: JSON.generate(user: user)
 
-          expect(response).to have_http_status :parameter_missing
+          expect(response).to have_http_status :bad_request
 
           error_response = JSON.parse(response.body, symbolize_names: true)
 
           expect(error_response).to have_key :errors
-          expect(error_response[:errors][0][:status]).to eq 'Parameter Missing'
-          expect(error_response[:errors][0][:message][0]).to eq 'param is missing or the value is empty: user'
+          expect(error_response[:errors][0][:status]).to eq 'Bad Request'
+          expect(error_response[:errors][0][:message]).to eq 'param is missing or the value is empty: user'
           expect(error_response[:errors][0][:code]).to eq 400
         end
       end
