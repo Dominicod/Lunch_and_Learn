@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.edamam.com/api/recipes/v2?app_id=23ff30b2&app_key=07302494da1b5e032af1d72c06314857&q=Djibouti&type=public
+    uri: https://api.edamam.com/api/recipes/v2?app_id=ED_APP_ID&app_key=ED_APP_KEY&q=Djibouti&type=public
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Sat, 12 Nov 2022 22:03:51 GMT
+      - Sun, 13 Nov 2022 02:43:21 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -33,13 +33,13 @@ http_interactions:
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Served-By:
-      - ip-10-0-1-125.ec2.internal/10.0.1.125
+      - ip-10-0-1-36.ec2.internal/10.0.1.36
       Strict-Transport-Security:
       - max-age=15552001
       X-Request-Id:
-      - 39551cd4b8c83cfd34e8d39c6ea2efb7
+      - 0e8c41ddb5775b4a7a27298ea46f8e1b
     body:
       encoding: UTF-8
       string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
-  recorded_at: Sat, 12 Nov 2022 22:03:51 GMT
+  recorded_at: Sun, 13 Nov 2022 02:43:21 GMT
 recorded_with: VCR 6.1.0

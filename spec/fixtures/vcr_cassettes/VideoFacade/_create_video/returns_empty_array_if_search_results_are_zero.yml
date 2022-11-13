@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://www.googleapis.com/youtube/v3/search?channelId=UCluQ5yInbeAkkeCndNnUhpw&key=AIzaSyAp4bzTchkw2G0AhqOQUc9fPXCb83Zog4w&maxResults=1&part=snippet&q=youarenotfindingavideo
+    uri: https://www.googleapis.com/youtube/v3/search?channelId=UCluQ5yInbeAkkeCndNnUhpw&key=GOOGLE_API_KEY&maxResults=1&part=snippet&q=youarenotfindingavideo
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Sun, 13 Nov 2022 00:47:35 GMT
+      - Sun, 13 Nov 2022 02:32:35 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -54,5 +54,5 @@ http_interactions:
           },
           "items": []
         }
-  recorded_at: Sun, 13 Nov 2022 00:47:35 GMT
+  recorded_at: Sun, 13 Nov 2022 02:32:35 GMT
 recorded_with: VCR 6.1.0
