@@ -63,23 +63,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 13 Nov 2022 02:33:59 GMT
+      - Sun, 13 Nov 2022 17:23:27 GMT
       Age:
-      - '2672'
+      - '56040'
       X-Served-By:
-      - cache-iad-kcgs7200081-IAD, cache-dal21246-DAL
+      - cache-iad-kcgs7200081-IAD, cache-dal2120101-DAL
       X-Cache:
       - MISS, HIT
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1668306840.720963,VS0,VE1
+      - S1668360208.510332,VS0,VE1
       Vary:
       - Accept-Encoding, Origin,Authorization,Accept-Language,client-geo-region,Accept
     body:
       encoding: ASCII-8BIT
       string: '{"total":0,"total_pages":0,"results":[]}'
-  recorded_at: Sun, 13 Nov 2022 02:33:59 GMT
+  recorded_at: Sun, 13 Nov 2022 17:23:27 GMT
 - request:
     method: get
     uri: https://www.googleapis.com/youtube/v3/search?channelId=UCluQ5yInbeAkkeCndNnUhpw&key=GOOGLE_API_KEY&maxResults=1&part=snippet&q=thisisnotacountry
@@ -105,7 +105,7 @@ http_interactions:
       - Referer
       - X-Origin
       Date:
-      - Sun, 13 Nov 2022 02:33:59 GMT
+      - Sun, 13 Nov 2022 17:23:27 GMT
       Server:
       - scaffolding on HTTPServer2
       Cache-Control:
@@ -134,5 +134,5 @@ http_interactions:
           },
           "items": []
         }
-  recorded_at: Sun, 13 Nov 2022 02:34:00 GMT
+  recorded_at: Sun, 13 Nov 2022 17:23:27 GMT
 recorded_with: VCR 6.1.0
