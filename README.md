@@ -46,6 +46,8 @@
 
 #### API Keys:
 * https://developer.edamam.com/edamam-docs-recipe-api (`ED_APP_ID`, `ED_APP_KEY`)
+* https://unsplash.com/documentation (`UNSPLASH_CLIENT`)
+* https://developers.google.com/youtube/v3/docs (`GOOGLE_API_KEY`)
 
 - Clone this repo
 - `bundle install`
