@@ -42,6 +42,9 @@
    1. [Index](#recipes-index)
 7. [Learning Resources End Points](#learning-resources-end-points)
    1. [Index](#learning-resources-index)
+   
+8. [Registration End Points](#registration-end-points)
+    1. [Create](#registration-create)
 
 
 ## Set Up
@@ -191,6 +194,39 @@ Returns a learning resource for a selected country
                     "url": "https://images.unsplash.com/photo-1553856622-d1b352e9a211?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHwxMHx8bGFvc3xlbnwwfHx8fDE2NjgzMDM4MzA&ixlib=rb-4.0.3"
                 }
             ]
+        }
+    }
+}
+```
+
+## Registration End Points
+
+### Registration Create
+Creates a User in the database and returns needed useful information
+
+*If email is already taken or missing params/user, you will receive an error response*
+
+Correct Example request:
+```json
+{
+  "user": {
+    "name": "Athena Dao",
+    "email": "athenadao@bestgirlever.com",
+    "password": "password",
+    "password_confirmation": "password"
+  }
+}
+```
+`POST https://lunch-and-learn-2022.herokuapp.com/api/v1/users`
+```json
+{
+    "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+            "name": "Athena Dao",
+            "email": "athenadao@bestgirlever.com",
+            "api_key": "2a713ca1da1104887d932e1467fe5a"
         }
     }
 }
