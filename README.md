@@ -40,12 +40,16 @@
 5. [Testing Instructions](#testing-instructions)
 6. [Recipes End Points](#recipe-end-points)
    1. [Index](#recipes-index)
+7. [Learning Resources End Points](#learning-resources-end-points)
+   1. [Index](#learning-resources-index)
 
 
 ## Set Up
 
 #### API Keys:
 * https://developer.edamam.com/edamam-docs-recipe-api (`ED_APP_ID`, `ED_APP_KEY`)
+* https://unsplash.com/documentation (`UNSPLASH_CLIENT`)
+* https://developers.google.com/youtube/v3/docs (`GOOGLE_API_KEY`)
 
 - Clone this repo
 - `bundle install`
@@ -125,6 +129,71 @@ or returns an index of recipes for given country
 {...}
 {...}
 {...}
+```
+## Learning Resources End Points
+
+### Learning Resources Index
+Returns a learning resource for a selected country
+
+*If a country does not have images or a video, an empty array is returned in its place*
+
+`GET https://lunch-and-learn-2022.herokuapp.com/api/v1/learning_resources?country=Laos`
+```json
+{
+    "data": {
+        "id": null,
+        "type": "learning_resource",
+        "attributes": {
+            "country": "laos",
+            "video": {
+                "title": "A Super Quick History of Laos",
+                "youtube_video_id": "uw8hjVqxMXw"
+            },
+            "images": [
+                {
+                    "alt_tag": "time lapse photography of flying hot air balloon",
+                    "url": "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHwxfHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "aerial view of city at daytime",
+                    "url": "https://images.unsplash.com/photo-1570366583862-f91883984fde?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHwyfHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "brown and white concrete building under blue sky during daytime",
+                    "url": "https://images.unsplash.com/photo-1610426714962-83caa2244105?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHwzfHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "aerial view of green trees and mountains during daytime",
+                    "url": "https://images.unsplash.com/photo-1593994602962-fc4c26fd82e9?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHw0fHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "waterfalls in the middle of the forest during daytime",
+                    "url": "https://images.unsplash.com/photo-1626982024771-282582a4ecac?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHw1fHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "two boats near body of water",
+                    "url": "https://images.unsplash.com/photo-1441632260885-881646a7fd4d?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHw2fHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "waterfalls on mountain",
+                    "url": "https://images.unsplash.com/photo-1565092640981-0081b99f45ba?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHw3fHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "woman in red and white floral dress smiling",
+                    "url": "https://images.unsplash.com/photo-1608000065495-0032a4e54f80?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHw4fHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "green trees near body of water during daytime",
+                    "url": "https://images.unsplash.com/photo-1606064195579-a48c728cec35?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHw5fHxsYW9zfGVufDB8fHx8MTY2ODMwMzgzMA&ixlib=rb-4.0.3"
+                },
+                {
+                    "alt_tag": "body of water during sunset",
+                    "url": "https://images.unsplash.com/photo-1553856622-d1b352e9a211?ixid=MnwzODAyMzF8MHwxfHNlYXJjaHwxMHx8bGFvc3xlbnwwfHx8fDE2NjgzMDM4MzA&ixlib=rb-4.0.3"
+                }
+            ]
+        }
+    }
+}
 ```
 
 ## Contributions

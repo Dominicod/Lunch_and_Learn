@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.edamam.com/api/recipes/v2?app_id=23ff30b2&app_key=07302494da1b5e032af1d72c06314857&q=Djibouti&type=public
+    uri: https://api.edamam.com/api/recipes/v2?app_id=ED_APP_ID&app_key=ED_APP_KEY&q=Djibouti&type=public
     body:
       encoding: US-ASCII
       string: ''
@@ -21,49 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Sat, 12 Nov 2022 22:03:51 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '49'
-      Connection:
-      - keep-alive
-      Cache-Control:
-      - private
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      X-Served-By:
-      - ip-10-0-1-36.ec2.internal/10.0.1.36
-      Strict-Transport-Security:
-      - max-age=15552001
-      X-Request-Id:
-      - a6dcb0dcd389c9adde7509d9342575b7
-    body:
-      encoding: UTF-8
-      string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
-  recorded_at: Sat, 12 Nov 2022 22:03:51 GMT
-- request:
-    method: get
-    uri: https://api.edamam.com/api/recipes/v2?app_id=23ff30b2&app_key=07302494da1b5e032af1d72c06314857&q=&type=public
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v2.6.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: ''
-    headers:
-      Server:
-      - openresty
-      Date:
-      - Sat, 12 Nov 2022 22:03:51 GMT
+      - Sun, 13 Nov 2022 02:43:21 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -79,9 +37,51 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=15552001
       X-Request-Id:
-      - 6e5c9077fdf36a9a60c82ac910349d30
+      - 1a7b47ff6ac19de660caf7a902eca41c
     body:
       encoding: UTF-8
       string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
-  recorded_at: Sat, 12 Nov 2022 22:03:51 GMT
+  recorded_at: Sun, 13 Nov 2022 02:43:21 GMT
+- request:
+    method: get
+    uri: https://api.edamam.com/api/recipes/v2?app_id=ED_APP_ID&app_key=ED_APP_KEY&q=&type=public
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 13 Nov 2022 02:43:21 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '49'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Served-By:
+      - ip-10-0-1-125.ec2.internal/10.0.1.125
+      Strict-Transport-Security:
+      - max-age=15552001
+      X-Request-Id:
+      - 1d2e8b51b81ea3b69380ba12c9dee18e
+    body:
+      encoding: UTF-8
+      string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
+  recorded_at: Sun, 13 Nov 2022 02:43:21 GMT
 recorded_with: VCR 6.1.0

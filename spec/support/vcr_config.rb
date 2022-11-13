@@ -5,4 +5,7 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.default_cassette_options = { re_record_interval: 7.days }
+  Rails.application.secrets.each do |k, v|
+    config.filter_sensitive_data("ENV[#{k}]") { v }
+  end
 end

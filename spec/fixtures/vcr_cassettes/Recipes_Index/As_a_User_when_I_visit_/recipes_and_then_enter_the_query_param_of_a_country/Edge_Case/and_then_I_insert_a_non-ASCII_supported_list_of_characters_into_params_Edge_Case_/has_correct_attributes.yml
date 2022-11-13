@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.edamam.com/api/recipes/v2?app_id=23ff30b2&app_key=07302494da1b5e032af1d72c06314857&q=%D8%AF%D9%88%D9%84%D8%A9%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA&type=public
+    uri: https://api.edamam.com/api/recipes/v2?app_id=ED_APP_ID&app_key=ED_APP_KEY&q=%D8%AF%D9%88%D9%84%D8%A9%20%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA&type=public
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Sat, 12 Nov 2022 22:03:52 GMT
+      - Sun, 13 Nov 2022 02:43:23 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -37,9 +37,9 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=15552001
       X-Request-Id:
-      - b3bbe5bd2ced9f38f34aa915df416e12
+      - d48de1356f136f90faa205eb650c0f0f
     body:
       encoding: UTF-8
       string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
-  recorded_at: Sat, 12 Nov 2022 22:03:52 GMT
+  recorded_at: Sun, 13 Nov 2022 02:43:23 GMT
 recorded_with: VCR 6.1.0
