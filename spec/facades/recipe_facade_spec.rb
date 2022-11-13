@@ -11,5 +11,9 @@ RSpec.describe RecipeFacade, :vcr, type: :facade do
     it 'objects are Recipe objects' do
       expect(described_class.create_recipes('United States')).to all(be_an_instance_of(Recipe))
     end
+
+    it 'returns empty array if search results are zero' do
+      expect(described_class.create_recipes('Djibouti')).to eq []
+    end
   end
 end
