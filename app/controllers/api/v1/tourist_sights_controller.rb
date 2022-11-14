@@ -5,7 +5,10 @@ module Api
     class TouristSightsController < ApplicationController # rubocop:todo Style/Documentation
       before_action :random_country, only: [:index]
       def index
-        render json: TouristSightSerializer.new(TourismSightFacade.create_sights(sight_params[:country]))
+        tourism_sights = TourismSightFacade.create_sights(sight_params[:country])
+        raise IncorrectEmailException, 'Must enter a valid country' unless tourism_sights.is_a?(Array)
+
+        render json: TouristSightSerializer.new(tourism_sights)
       end
 
       private

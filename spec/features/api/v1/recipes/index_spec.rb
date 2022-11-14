@@ -95,7 +95,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
           JSON.parse(response.body, symbolize_names: true)
         end
 
-        xit { expect(response).to have_http_status :not_found }
+        xit { expect(response).to have_http_status :bad_request }
 
         xit 'it returns an array, stating the country does not exist'
       end
