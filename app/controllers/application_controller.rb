@@ -47,7 +47,7 @@ class ApplicationController < ActionController::API
   end
 
   def valid_country_check
-    return if CountryFacade.country?(params[:country])
+    return if CountryFacade.country?(params[:country]) || params[:country].empty?
 
     raise IncorrectCountryException, "Country invalid for: #{params[:country]}"
   end

@@ -44,9 +44,10 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
 
         it 'returns empty array if no string passed to param' do
           get api_v1_recipes_path, params: { country: '' }
+          response_recipe = JSON.parse(response.body, symbolize_names: true)
 
-          expect(recipes_response).to have_key(:data)
-          expect(recipes_response[:data]).to eq []
+          expect(response_recipe).to have_key(:data)
+          expect(response_recipe[:data]).to eq []
         end
       end
 

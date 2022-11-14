@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 14 Nov 2022 23:17:16 GMT
+      - Mon, 14 Nov 2022 23:28:58 GMT
       Server:
       - Apache/2.4.38 (Debian)
       Cache-Control:
@@ -32,7 +32,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         W3sibmFtZSI6eyJjb21tb24iOiJEamlib3V0aSIsIm9mZmljaWFsIjoiUmVwdWJsaWMgb2YgRGppYm91dGkiLCJuYXRpdmVOYW1lIjp7ImFyYSI6eyJvZmZpY2lhbCI6Itis2YXZh9mI2LHZitipINis2YrYqNmI2KrZiiIsImNvbW1vbiI6Itis2YrYqNmI2KrZiuKAjiJ9LCJmcmEiOnsib2ZmaWNpYWwiOiJSw6lwdWJsaXF1ZSBkZSBEamlib3V0aSIsImNvbW1vbiI6IkRqaWJvdXRpIn19fSwidGxkIjpbIi5kaiJdLCJjY2EyIjoiREoiLCJjY24zIjoiMjYyIiwiY2NhMyI6IkRKSSIsImNpb2MiOiJESkkiLCJpbmRlcGVuZGVudCI6dHJ1ZSwic3RhdHVzIjoib2ZmaWNpYWxseS1hc3NpZ25lZCIsInVuTWVtYmVyIjp0cnVlLCJjdXJyZW5jaWVzIjp7IkRKRiI6eyJuYW1lIjoiRGppYm91dGlhbiBmcmFuYyIsInN5bWJvbCI6IkZyIn19LCJpZGQiOnsicm9vdCI6IisyIiwic3VmZml4ZXMiOlsiNTMiXX0sImNhcGl0YWwiOlsiRGppYm91dGkiXSwiYWx0U3BlbGxpbmdzIjpbIkRKIiwiSmFidXV0aSIsIkdhYnV1dGkiLCJSZXB1YmxpYyBvZiBEamlib3V0aSIsIlLDqXB1YmxpcXVlIGRlIERqaWJvdXRpIiwiR2FidXV0aWggVW1tdXVubyIsIkphbWh1dXJpeWFkZGEgSmFidXV0aSJdLCJyZWdpb24iOiJBZnJpY2EiLCJzdWJyZWdpb24iOiJFYXN0ZXJuIEFmcmljYSIsImxhbmd1YWdlcyI6eyJhcmEiOiJBcmFiaWMiLCJmcmEiOiJGcmVuY2gifSwidHJhbnNsYXRpb25zIjp7ImFyYSI6eyJvZmZpY2lhbCI6Itis2YXZh9mI2LHZitipINis2YrYqNmI2KrZiiIsImNvbW1vbiI6Itis2YrYqNmI2KrZiiJ9LCJicmUiOnsib2ZmaWNpYWwiOiJSZXB1YmxpayBEamlib3V0aSIsImNvbW1vbiI6IkRqaWJvdXRpIn0sImNlcyI6eyJvZmZpY2lhbCI6IkTFvmlidXRza8OhIHJlcHVibGlrYSIsImNvbW1vbiI6IkTFvmlidXRza28ifSwiY3ltIjp7Im9mZmljaWFsIjoiR3dlcmluaWFldGggSmlid3RpIiwiY29tbW9uIjoiSmlid3RpIn0sImRldSI6eyJvZmZpY2lhbCI6IlJlcHVibGlrIERzY2hpYnV0aSIsImNvbW1vbiI6IkRzY2hpYnV0aSJ9LCJlc3QiOnsib2ZmaWNpYWwiOiJEamlib3V0aSBWYWJhcmlpayIsImNvbW1vbiI6IkRqaWJvdXRpIn0sImZpbiI6eyJvZmZpY2lhbCI6IkRpamlib3V0aW4gdGFzYXZhbHRhIiwiY29tbW9uIjoiRGlqaWJvdXRpIn0sImZyYSI6eyJvZmZpY2lhbCI6IlLDqXB1YmxpcXVlIGRlIERqaWJvdXRpIiwiY29tbW9uIjoiRGppYm91dGkifSwiaHJ2Ijp7Im9mZmljaWFsIjoiUmVwdWJsaWthIETFvmlidXRpIiwiY29tbW9uIjoiRMW+aWJ1dGkifSwiaHVuIjp7Im9mZmljaWFsIjoiRHpzaWJ1dGkgS8O2enTDoXJzYXPDoWciLCJjb21tb24iOiJEenNpYnV0aSJ9LCJpdGEiOnsib2ZmaWNpYWwiOiJSZXB1YmJsaWNhIGRpIEdpYnV0aSIsImNvbW1vbiI6IkdpYnV0aSJ9LCJqcG4iOnsib2ZmaWNpYWwiOiLjgrjjg5bjg4HlhbHlkozlm70iLCJjb21tb24iOiLjgrjjg5bjg4EifSwia29yIjp7Im9mZmljaWFsIjoi7KeA67aA7YuwIOqzte2ZlOq1rSIsImNvbW1vbiI6IuyngOu2gO2LsCJ9LCJubGQiOnsib2ZmaWNpYWwiOiJSZXB1YmxpZWsgRGppYm91dGkiLCJjb21tb24iOiJEamlib3V0aSJ9LCJwZXIiOnsib2ZmaWNpYWwiOiLYrNmF2YfZiNix24wg2KzbjNio2YjYqtuMIiwiY29tbW9uIjoi2KzbjNio2YjYqtuMIn0sInBvbCI6eyJvZmZpY2lhbCI6IlJlcHVibGlrYSBExbxpYnV0aSIsImNvbW1vbiI6IkTFvGlidXRpIn0sInBvciI6eyJvZmZpY2lhbCI6IlJlcMO6YmxpY2EgZG8gRGppYm91dGkiLCJjb21tb24iOiJEamlib3V0aSJ9LCJydXMiOnsib2ZmaWNpYWwiOiLQoNC10YHQv9GD0LHQu9C40LrQsCDQlNC20LjQsdGD0YLQuCIsImNvbW1vbiI6ItCU0LbQuNCx0YPRgtC4In0sInNsayI6eyJvZmZpY2lhbCI6IseFaWJ1dHNrw6EgcmVwdWJsaWthIiwiY29tbW9uIjoix4VpYnV0c2tvIn0sInNwYSI6eyJvZmZpY2lhbCI6IlJlcMO6YmxpY2EgZGUgRGppYm91dGkiLCJjb21tb24iOiJEamlib3V0aSJ9LCJzd2UiOnsib2ZmaWNpYWwiOiJSZXB1Ymxpa2VuIERqaWJvdXRpIiwiY29tbW9uIjoiRGppYm91dGkifSwidHVyIjp7Im9mZmljaWFsIjoiQ2lidXRpIEN1bWh1cml5ZXRpIiwiY29tbW9uIjoiQ2lidXRpIn0sInVyZCI6eyJvZmZpY2lhbCI6Itis2YXbgdmI2LHbjNuBINis2KjZiNiq24wiLCJjb21tb24iOiLYrNio2YjYqtuMIn0sInpobyI6eyJvZmZpY2lhbCI6IuWQieW4g+aPkOWFseWSjOWbvSIsImNvbW1vbiI6IuWQieW4g+aPkCJ9fSwibGF0bG5nIjpbMTEuNSw0My4wXSwibGFuZGxvY2tlZCI6ZmFsc2UsImJvcmRlcnMiOlsiRVJJIiwiRVRIIiwiU09NIl0sImFyZWEiOjIzMjAwLjAsImRlbW9ueW1zIjp7ImVuZyI6eyJmIjoiRGppYm91dGkiLCJtIjoiRGppYm91dGkifSwiZnJhIjp7ImYiOiJEamlib3V0aWVubmUiLCJtIjoiRGppYm91dGllbiJ9fSwiZmxhZyI6Ilx1RDgzQ1x1RERFOVx1RDgzQ1x1RERFRiIsIm1hcHMiOnsiZ29vZ2xlTWFwcyI6Imh0dHBzOi8vZ29vLmdsL21hcHMvVjFIV2Z6TjNiUzFrd2Y0QzYiLCJvcGVuU3RyZWV0TWFwcyI6Imh0dHBzOi8vd3d3Lm9wZW5zdHJlZXRtYXAub3JnL3JlbGF0aW9uLzE5MjgwMSJ9LCJwb3B1bGF0aW9uIjo5ODgwMDIsImdpbmkiOnsiMjAxNyI6NDEuNn0sImZpZmEiOiJESkkiLCJjYXIiOnsic2lnbnMiOlsiREpJIl0sInNpZGUiOiJyaWdodCJ9LCJ0aW1lem9uZXMiOlsiVVRDKzAzOjAwIl0sImNvbnRpbmVudHMiOlsiQWZyaWNhIl0sImZsYWdzIjp7InBuZyI6Imh0dHBzOi8vZmxhZ2Nkbi5jb20vdzMyMC9kai5wbmciLCJzdmciOiJodHRwczovL2ZsYWdjZG4uY29tL2RqLnN2ZyJ9LCJjb2F0T2ZBcm1zIjp7InBuZyI6Imh0dHBzOi8vbWFpbmZhY3RzLmNvbS9tZWRpYS9pbWFnZXMvY29hdHNfb2ZfYXJtcy9kai5wbmciLCJzdmciOiJodHRwczovL21haW5mYWN0cy5jb20vbWVkaWEvaW1hZ2VzL2NvYXRzX29mX2FybXMvZGouc3ZnIn0sInN0YXJ0T2ZXZWVrIjoibW9uZGF5IiwiY2FwaXRhbEluZm8iOnsibGF0bG5nIjpbMTEuNTgsNDMuMTVdfX1d
-  recorded_at: Mon, 14 Nov 2022 23:17:16 GMT
+  recorded_at: Mon, 14 Nov 2022 23:28:59 GMT
 - request:
     method: get
     uri: https://api.edamam.com/api/recipes/v2?app_id=ED_APP_ID&app_key=ED_APP_KEY&q=Djibouti&type=public
@@ -54,7 +54,7 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Mon, 14 Nov 2022 23:17:16 GMT
+      - Mon, 14 Nov 2022 23:28:59 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -66,15 +66,15 @@ http_interactions:
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       X-Served-By:
-      - ip-10-0-1-10.ec2.internal/10.0.1.10
+      - ip-10-0-1-87.ec2.internal/10.0.1.87
       Strict-Transport-Security:
       - max-age=15552001
       X-Request-Id:
-      - 9e0a9603be51ae92b7e527e6c8c5a883
+      - 9dba567b69952becb3b6a827194518b9
     body:
       encoding: UTF-8
       string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
-  recorded_at: Mon, 14 Nov 2022 23:17:16 GMT
+  recorded_at: Mon, 14 Nov 2022 23:28:59 GMT
 - request:
     method: get
     uri: https://restcountries.com/v3.1/name/
@@ -94,7 +94,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Mon, 14 Nov 2022 23:17:16 GMT
+      - Mon, 14 Nov 2022 23:28:59 GMT
       Server:
       - Apache/2.4.38 (Debian)
       Content-Type:
@@ -104,5 +104,47 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"message":"Page Not Found","_links":{"self":{"href":"/v3.1/name/","templated":false}}}'
-  recorded_at: Mon, 14 Nov 2022 23:17:16 GMT
+  recorded_at: Mon, 14 Nov 2022 23:28:59 GMT
+- request:
+    method: get
+    uri: https://api.edamam.com/api/recipes/v2?app_id=ED_APP_ID&app_key=ED_APP_KEY&q=&type=public
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Mon, 14 Nov 2022 23:28:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '49'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Served-By:
+      - ip-10-0-1-10.ec2.internal/10.0.1.10
+      Strict-Transport-Security:
+      - max-age=15552001
+      X-Request-Id:
+      - 8d50e59117e0878c6d98b608ea986ca9
+    body:
+      encoding: UTF-8
+      string: '{"from":1,"to":0,"count":0,"_links":{},"hits":[]}'
+  recorded_at: Mon, 14 Nov 2022 23:28:59 GMT
 recorded_with: VCR 6.1.0

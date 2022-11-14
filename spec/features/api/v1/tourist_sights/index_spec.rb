@@ -34,14 +34,11 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do # rubocop:todo 
           JSON.parse(response.body, symbolize_names: true)
         end
 
-        it { expect(response).to have_http_status :bad_request }
+        it { expect(response).to have_http_status :ok }
 
-        it 'returns an error stating a country is required' do
-          expect(tourist_response).to have_key(:errors)
-          expect(tourist_response[:errors]).to be_an Array
-          expect(tourist_response[:errors][0][:status]).to eq 'Bad Request'
-          expect(tourist_response[:errors][0][:message]).to eq 'Country invalid for: '
-          expect(tourist_response[:errors][0][:code]).to eq 400
+        it 'returns empty array if no string passed to param' do
+          expect(tourist_response).to have_key(:data)
+          expect(tourist_response[:data]).to eq []
         end
       end
 
