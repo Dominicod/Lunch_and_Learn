@@ -5,4 +5,8 @@ class CountryFacade # rubocop:todo Style/Documentation
     response = CountryService.country_list
     Country.new(response.sample)
   end
+
+  def self.country_lat_long(query)
+    CountryLatLong.new(CountryService.country_lat_long(query))
+  end
 end
