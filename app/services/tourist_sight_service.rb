@@ -2,7 +2,7 @@
 
 class TouristSightService # rubocop:todo Style/Documentation
   include ServiceHelperModule
-  def self.sight(long, lat)
+  def self.sights(long, lat)
     parse(conn.get("?categories=tourism.sights&filter=circle:#{long},#{lat},20000"))
   end
 
