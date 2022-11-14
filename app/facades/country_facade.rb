@@ -7,6 +7,10 @@ class CountryFacade # rubocop:todo Style/Documentation
   end
 
   def self.country_lat_long(query)
-    CountryLatLong.new(CountryService.country_lat_long(query))
+    CountryLatLong.new(CountryService.country_lat_long(query)) if country?(query)
+  end
+
+  def self.country?(query)
+    CountryService.country_lat_long(query)[0]
   end
 end
