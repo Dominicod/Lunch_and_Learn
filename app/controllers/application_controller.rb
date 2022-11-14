@@ -39,6 +39,8 @@ class ApplicationController < ActionController::API
   end
 
   def random_country
-    params[:country] = CountryFacade.random_country.name if params[:country].nil?
+    return unless params[:country].nil?
+
+    params[:country] = CountryFacade.random_country.name
   end
 end
