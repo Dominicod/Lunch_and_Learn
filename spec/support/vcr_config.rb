@@ -8,4 +8,5 @@ VCR.configure do |config|
   config.filter_sensitive_data('ED_APP_KEY') { ENV['ED_APP_KEY'] }
   config.filter_sensitive_data('GOOGLE_API_KEY') { ENV['GOOGLE_API_KEY'] }
   config.filter_sensitive_data('UNSPLASH_CLIENT') { ENV['UNSPLASH_CLIENT'] }
+  config.filter_sensitive_data('PLACES_KEY') { ENV['PLACES_KEY'] }
 end
