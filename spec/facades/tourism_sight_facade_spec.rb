@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe TourismSightFacade, :vcr, type: :facade do
-  describe '.create_video' do
+  describe '.create_sights' do
     it 'returns an array' do
       expect(described_class.create_sights('France')).to be_an Array
     end
@@ -12,8 +12,8 @@ RSpec.describe TourismSightFacade, :vcr, type: :facade do
       expect(described_class.create_sights('France')).to all(be_an_instance_of(Sight))
     end
 
-    it 'returns empty array if search results are zero' do
-      expect(described_class.create_sights('Ecuador')).to eq []
+    xit 'returns empty array if search results are zero' do
+      expect(described_class.create_sights('')).to eq []
     end
   end
 end
