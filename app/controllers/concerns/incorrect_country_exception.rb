@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class IncorrectEmailException < StandardError
+class IncorrectCountryException < StandardError
   attr_reader :data
 
   def initialize(data)

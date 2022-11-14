@@ -95,9 +95,15 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
           JSON.parse(response.body, symbolize_names: true)
         end
 
-        xit { expect(response).to have_http_status :bad_request }
+        it { expect(response).to have_http_status :bad_request }
 
-        xit 'it returns an array, stating the country does not exist'
+        it 'returns an error stating a country is required' do
+          expect(recipes_response).to have_key(:errors)
+          expect(recipes_response[:errors]).to be_an Array
+          expect(recipes_response[:errors][0][:status]).to eq 'Bad Request'
+          expect(recipes_response[:errors][0][:message]).to eq 'Country invalid for: Ohio'
+          expect(recipes_response[:errors][0][:code]).to eq 400
+        end
       end
     end
   end

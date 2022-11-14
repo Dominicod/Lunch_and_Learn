@@ -6,7 +6,7 @@ module Api
       before_action :random_country, only: [:index]
       def index
         tourism_sights = TourismSightFacade.create_sights(sight_params[:country])
-        raise IncorrectEmailException, "Country invalid for: #{sight_params[:country]}" unless tourism_sights.is_a?(Array)
+        raise IncorrectCountryException, "Country invalid for: #{sight_params[:country]}" unless tourism_sights.is_a?(Array)
 
         render json: TouristSightSerializer.new(tourism_sights)
       end
