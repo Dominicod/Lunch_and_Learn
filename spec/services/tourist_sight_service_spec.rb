@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe TouristSightService, :vcr, type: :service do
-  let(:response) { described_class.sights(-0.07071648508463113, 51.50848194136378) }
+  let(:response) { described_class.sights(-96.818733, 33.155373) }
 
   describe '.sights' do
     it 'returns features as an array' do
