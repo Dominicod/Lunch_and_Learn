@@ -9,7 +9,7 @@ RSpec.describe TourismSightFacade, :vcr, type: :facade do
     end
 
     it 'returns an array of sight objects' do
-      expect(described_class.create_sights('France')).to all(be_an_instance_of(Sight))
+      expect(described_class.create_sights('France')).to all(be_an_instance_of(TouristSight))
     end
 
     xit 'returns empty array if search results are zero' do

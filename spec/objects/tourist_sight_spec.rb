@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Sight, :vcr, type: :object do
+RSpec.describe TouristSight, :vcr, type: :object do
   let(:sight_object) do
     response = TouristSightService.sights(-96.818733, 33.155373)
     described_class.new(response[:features][0])
