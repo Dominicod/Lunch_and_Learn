@@ -3,12 +3,11 @@
 module Api
   module V1
     class RecipesController < ApplicationController # rubocop:todo Style/Documentation
-      before_action :random_country, only: [:index]
+      before_action :random_country,
+                    :valid_country_check,
+                    only: [:index]
       def index
-        recipes = RecipeFacade.create_recipes(query_params[:country])
-        raise IncorrectCountryException, "Country invalid for: #{query_params[:country]}" unless recipes.is_a?(Array)
-
-        render json: RecipeSerializer.new(recipes)
+        render json: RecipeSerializer.new(RecipeFacade.create_recipes(query_params[:country]))
       end
 
       private

@@ -52,7 +52,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
 
       describe 'I do not enter a query param for country and then it' do
         let!(:recipes_response) do
-          mocked_country = Country.new({ name: { common: 'United States' } })
+          mocked_country = Country.new({ name: { common: 'Laos' } })
           allow(CountryFacade).to receive(:random_country).and_return(mocked_country)
           get api_v1_recipes_path
           JSON.parse(response.body, symbolize_names: true)
@@ -81,11 +81,14 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
           JSON.parse(response.body, symbolize_names: true)
         end
 
-        it { expect(response).to have_http_status :ok }
+        it { expect(response).to have_http_status :bad_request }
 
-        it 'has correct attributes' do
-          expect(recipes_response).to have_key(:data)
-          expect(recipes_response[:data]).to eq []
+        it 'returns an error stating a country is required' do
+          expect(recipes_response).to have_key(:errors)
+          expect(recipes_response[:errors]).to be_an Array
+          expect(recipes_response[:errors][0][:status]).to eq 'Bad Request'
+          expect(recipes_response[:errors][0][:message]).to eq 'Country invalid for: دولة الكويت'
+          expect(recipes_response[:errors][0][:code]).to eq 400
         end
       end
 

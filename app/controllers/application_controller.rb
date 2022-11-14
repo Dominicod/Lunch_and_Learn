@@ -45,4 +45,10 @@ class ApplicationController < ActionController::API
 
     params[:country] = CountryFacade.random_country.name
   end
+
+  def valid_country_check
+    return if CountryFacade.country?(params[:country])
+
+    raise IncorrectCountryException, "Country invalid for: #{params[:country]}"
+  end
 end
