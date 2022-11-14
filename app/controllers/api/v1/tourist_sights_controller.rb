@@ -4,7 +4,7 @@ module Api
   module V1
     class TouristSightsController < ApplicationController # rubocop:todo Style/Documentation
       def index
-        render json: TourismSerializer.new(TourismSightFacade.create_sights(sight_params[:country]))
+        render json: TouristSightSerializer.new(TourismSightFacade.create_sights(sight_params[:country]))
       end
 
       private

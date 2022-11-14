@@ -3,7 +3,8 @@
 class TouristSight # rubocop:todo Style/Documentation
   attr_reader :name,
               :address,
-              :place_id
+              :place_id,
+              :id
 
   def initialize(response)
     @id = nil
