@@ -40,7 +40,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do # rubocop:todo 
           expect(tourist_response).to have_key(:errors)
           expect(tourist_response[:errors]).to be_an Array
           expect(tourist_response[:errors][0][:status]).to eq 'Bad Request'
-          expect(tourist_response[:errors][0][:message]).to eq 'Must enter a valid country'
+          expect(tourist_response[:errors][0][:message]).to eq 'Country invalid for: '
           expect(tourist_response[:errors][0][:code]).to eq 400
         end
       end
@@ -81,7 +81,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do # rubocop:todo 
           expect(tourist_response).to have_key(:errors)
           expect(tourist_response[:errors]).to be_an Array
           expect(tourist_response[:errors][0][:status]).to eq 'Bad Request'
-          expect(tourist_response[:errors][0][:message]).to eq 'Must enter a valid country'
+          expect(tourist_response[:errors][0][:message]).to eq 'Country invalid for: دولة الكويت'
           expect(tourist_response[:errors][0][:code]).to eq 400
         end
       end
@@ -98,7 +98,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do # rubocop:todo 
           expect(tourist_response).to have_key(:errors)
           expect(tourist_response[:errors]).to be_an Array
           expect(tourist_response[:errors][0][:status]).to eq 'Bad Request'
-          expect(tourist_response[:errors][0][:message]).to eq 'Must enter a valid country'
+          expect(tourist_response[:errors][0][:message]).to eq 'Country invalid for: Ohio'
           expect(tourist_response[:errors][0][:code]).to eq 400
         end
       end
