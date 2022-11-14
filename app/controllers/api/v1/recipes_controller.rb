@@ -13,10 +13,6 @@ module Api
       def query_params
         params.permit(:country)
       end
-
-      def random_country
-        params[:country] = CountryFacade.random_country.name if params[:country].nil?
-      end
     end
   end
 end

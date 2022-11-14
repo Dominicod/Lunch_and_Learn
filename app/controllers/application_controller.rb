@@ -37,4 +37,8 @@ class ApplicationController < ActionController::API
       Error.new({ code: error[:code], status: error[:status], message: error[:message] })
     ).serializable_json
   end
+
+  def random_country
+    params[:country] = CountryFacade.random_country.name if params[:country].nil?
+  end
 end
