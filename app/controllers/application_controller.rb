@@ -5,7 +5,6 @@ class ApplicationController < ActionController::API
   rescue_from ActionController::ParameterMissing, with: :render_bad_request
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  private
 
   def render_unprocessable_entity(exception)
     render json: unprocessable_entity(exception), status: :unprocessable_entity
@@ -18,6 +17,8 @@ class ApplicationController < ActionController::API
   def render_not_found(exception)
     render json: not_found(exception), status: :not_found
   end
+
+  private
 
   def not_found(exception)
     error_message({ code: 404, status: Rack::Utils::HTTP_STATUS_CODES[404], message: exception })
