@@ -5,5 +5,7 @@ FactoryBot.define do
     country { Faker::Games::Minecraft.biome }
     recipe_link { Faker::Internet.url }
     recipe_title { Faker::Games::Minecraft.achievement }
+
+    association :user
   end
 end
