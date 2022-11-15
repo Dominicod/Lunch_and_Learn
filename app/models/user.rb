@@ -5,7 +5,6 @@ class User < ApplicationRecord
             :password_digest,
             presence: true
   validates :email,
-            :api_key,
             presence: true,
             uniqueness: true
   has_many :favorites, dependent: :destroy
