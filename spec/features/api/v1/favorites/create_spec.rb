@@ -59,7 +59,7 @@ RSpec.describe 'Favorites | Create', type: :request do
             post api_v1_favorites_path, headers: headers, params: JSON.generate(favorite)
           end.to change(Favorite, :count).by(0)
 
-          expect(response).to have_http_response :bad_request
+          expect(response).to have_http_status :unprocessable_entity
         end
 
         it 'returns correct error message' do
@@ -67,9 +67,9 @@ RSpec.describe 'Favorites | Create', type: :request do
           error_response = JSON.parse(response.body, symbolize_names: true)
 
           expect(error_response).to have_key :errors
-          expect(error_response[:errors][0][:status]).to eq 'Bad Request'
-          expect(error_response[:errors][0][:message]).to eq 'param is missing or the value is empty: favorite'
-          expect(error_response[:errors][0][:code]).to eq 400
+          expect(error_response[:errors][0][:status]).to eq 'Unprocessable Entity'
+          expect(error_response[:errors][0][:message]).to eq ["Country can't be blank"]
+          expect(error_response[:errors][0][:code]).to eq 422
         end
       end
       describe 'and I do not send API Key' do
@@ -86,12 +86,12 @@ RSpec.describe 'Favorites | Create', type: :request do
             post api_v1_favorites_path, headers: headers, params: JSON.generate(favorite)
           end.to change(Favorite, :count).by(0)
 
-          expect(response).to have_http_response :unauthorized
+          expect(response).to have_http_status :unauthorized
         end
 
         it 'has correct attributes' do
           post api_v1_favorites_path, headers: headers, params: JSON.generate(favorite)
-          error_response = JSON.parse(response.body, symbolize_name: true)
+          error_response = JSON.parse(response.body, symbolize_names: true)
 
           expect(error_response[:errors]).to be_an Array
           expect(error_response[:errors][0][:status]).to eq 'Unauthorized'
