@@ -17,7 +17,6 @@ RSpec.describe CountryLatLong, :vcr, type: :object do
     it 'returns lat' do
       expect(country_object.lat).to be_an Float
       expect(country_object.lat).to eq 48.87
-
     end
   end
 end

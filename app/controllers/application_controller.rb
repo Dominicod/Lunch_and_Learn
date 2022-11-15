@@ -6,7 +6,6 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from IncorrectCountryException, with: :render_bad_request
 
-
   def render_unprocessable_entity(exception)
     render json: unprocessable_entity(exception), status: :unprocessable_entity
   end

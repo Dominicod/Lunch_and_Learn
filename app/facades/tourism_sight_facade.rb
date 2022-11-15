@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TourismSightFacade # rubocop:todo Style/Documentation
+class TourismSightFacade
   def self.create_sights(query)
     return [] if query.empty?
 

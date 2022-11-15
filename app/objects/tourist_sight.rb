@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TouristSight # rubocop:todo Style/Documentation
+class TouristSight
   attr_reader :name,
               :address,
               :place_id,

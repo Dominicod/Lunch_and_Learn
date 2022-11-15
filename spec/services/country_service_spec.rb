@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe CountryService, :vcr, type: :service do
-
   describe '.country_list' do
     let(:response) { described_class.country_list }
 

@@ -2,8 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics/BlockLength
-  # rubocop:todo Metrics/BlockLength
+RSpec.describe 'Recipes | Index', :vcr, type: :request do
   describe 'As a User, when I visit /recipes and then enter the query param of a country' do
     context('Happy Path') do
       describe 'I enter ?country=thailand and then it' do
@@ -28,7 +27,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
       end
     end
 
-    context('Sad Path') do # rubocop:todo Metrics/BlockLength
+    context('Sad Path') do
       describe 'I enter ?country=Djibouti and then it' do
         let!(:recipes_response) do
           get api_v1_recipes_path, params: { country: 'Djibouti' }
@@ -111,5 +110,4 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
       end
     end
   end
-  # rubocop:enable Metrics/BlockLength
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TouristSightService # rubocop:todo Style/Documentation
+class TouristSightService
   def self.sights(long, lat)
     parse(conn.get("?categories=tourism.sights&filter=circle:#{long},#{lat},20000"))
   end

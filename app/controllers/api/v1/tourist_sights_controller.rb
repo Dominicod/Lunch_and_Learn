@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class TouristSightsController < ApplicationController # rubocop:todo Style/Documentation
+    class TouristSightsController < ApplicationController
       before_action :random_country,
                     :valid_country_check,
                     only: [:index]

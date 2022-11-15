@@ -2,8 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do # rubocop:todo Metrics/BlockLength
-  # rubocop:todo Metrics/BlockLength
+RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
   describe 'As a User, when I visit /tourist_sights and then enter the query param of a country' do
     context('Happy Path') do
       describe 'I enter ?country=france and then it' do
@@ -27,7 +26,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do # rubocop:todo 
       end
     end
 
-    context('Sad Path') do # rubocop:todo Metrics/BlockLength
+    context('Sad Path') do
       describe "I enter ?country='' and then it" do
         let!(:tourist_response) do
           get api_v1_tourist_sights_path, params: { country: '' }
@@ -101,5 +100,4 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do # rubocop:todo 
       end
     end
   end
-  # rubocop:enable Metrics/BlockLength
 end

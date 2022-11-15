@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class RecipesController < ApplicationController # rubocop:todo Style/Documentation
+    class RecipesController < ApplicationController
       before_action :random_country,
                     :valid_country_check,
                     only: [:index]

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CountryLatLong # rubocop:todo Style/Documentation
+class CountryLatLong
   attr_reader :long,
               :lat
 
