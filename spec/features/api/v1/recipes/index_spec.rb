@@ -7,7 +7,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
     context('Happy Path') do
       describe 'I enter ?country=thailand and then it' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'thailand' }
+          get api_v1_recipes_path, params: { country: 'thailand', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -30,7 +30,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
     context('Sad Path') do
       describe 'I enter ?country=Djibouti and then it' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'Djibouti' }
+          get api_v1_recipes_path, params: { country: 'Djibouti', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -42,7 +42,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
         end
 
         it 'returns empty array if no string passed to param' do
-          get api_v1_recipes_path, params: { country: '' }
+          get api_v1_recipes_path, params: { country: '', api_key: '12345' }
           response_recipe = JSON.parse(response.body, symbolize_names: true)
 
           expect(response_recipe).to have_key(:data)
@@ -54,7 +54,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
         let!(:recipes_response) do
           mocked_country = Country.new({ name: { common: 'Laos' } })
           allow(CountryFacade).to receive(:random_country).and_return(mocked_country)
-          get api_v1_recipes_path
+          get api_v1_recipes_path, params: { api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -77,7 +77,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
     context('Edge Case') do
       describe 'and then I insert a non-ASCII supported list of characters into params (Edge Case)' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'دولة الكويت' }
+          get api_v1_recipes_path, params: { country: 'دولة الكويت', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -94,7 +94,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
 
       describe 'and then I enter a incorrect country name and then it' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'Ohio' }
+          get api_v1_recipes_path, params: { country: 'Ohio', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 

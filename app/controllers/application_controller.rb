@@ -6,6 +6,8 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from IncorrectCountryException, with: :render_bad_request
 
+  before_action :require_valid_api_key
+
   def render_unprocessable_entity(exception)
     render json: unprocessable_entity(exception), status: :unprocessable_entity
   end
@@ -16,6 +18,10 @@ class ApplicationController < ActionController::API
 
   def render_not_found(exception)
     render json: not_found(exception), status: :not_found
+  end
+
+  def render_unauthorized(exception)
+    render json: not_authorized(exception), status: :unauthorized
   end
 
   private
@@ -31,6 +37,10 @@ class ApplicationController < ActionController::API
   def unprocessable_entity(exception)
     errors = exception.message.split(':')[1].split(',').map(&:strip)
     error_message({ code: 422, status: Rack::Utils::HTTP_STATUS_CODES[422], message: errors })
+  end
+
+  def not_authorized(exception)
+    error_message({ code: 401, status: Rack::Utils::HTTP_STATUS_CODES[401], message: exception })
   end
 
   def error_message(error)
@@ -51,5 +61,11 @@ class ApplicationController < ActionController::API
     end
 
     raise IncorrectCountryException, "Country invalid for: #{params[:country]}"
+  end
+
+  def require_valid_api_key
+    return unless params[:api_key].nil?
+
+    render_unauthorized('API Key Omitted or Invalid')
   end
 end

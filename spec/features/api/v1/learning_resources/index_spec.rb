@@ -7,7 +7,7 @@ RSpec.describe 'Learning Resources | Index', :vcr, type: :request do
     context('Happy Path') do
       describe 'I enter ?country=laos and then it' do
         let!(:lr_response) do
-          get api_v1_learning_resources_path, params: { country: 'laos' }
+          get api_v1_learning_resources_path, params: { country: 'laos', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -35,7 +35,7 @@ RSpec.describe 'Learning Resources | Index', :vcr, type: :request do
     context('Sad Path') do
       describe 'I enter ?country=thisisnotacountry and then it' do
         let!(:lr_response) do
-          get api_v1_learning_resources_path, params: { country: 'thisisnotacountry' }
+          get api_v1_learning_resources_path, params: { country: 'thisisnotacountry', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -56,7 +56,7 @@ RSpec.describe 'Learning Resources | Index', :vcr, type: :request do
     context('Edge Case') do
       describe 'and then I insert a non-ASCII supported list of characters into params (Edge Case)' do
         let!(:lr_response) do
-          get api_v1_learning_resources_path, params: { country: 'دولة الكويت' }
+          get api_v1_learning_resources_path, params: { country: 'دولة الكويت', api_key: '12345'}
           JSON.parse(response.body, symbolize_names: true)
         end
 

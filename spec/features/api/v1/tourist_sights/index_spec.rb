@@ -7,7 +7,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
     context('Happy Path') do
       describe 'I enter ?country=france and then it' do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: 'france' }
+          get api_v1_tourist_sights_path, params: { country: 'france', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -29,7 +29,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
     context('Sad Path') do
       describe "I enter ?country='' and then it" do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: '' }
+          get api_v1_tourist_sights_path, params: { country: '', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -45,7 +45,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
         let!(:tourist_response) do
           mocked_country = Country.new({ name: { common: 'Laos' } })
           allow(CountryFacade).to receive(:random_country).and_return(mocked_country)
-          get api_v1_tourist_sights_path
+          get api_v1_tourist_sights_path, params: { api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -67,7 +67,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
     context('Edge Case') do
       describe 'and then I insert a non-ASCII supported list of characters into params (Edge Case)' do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: 'دولة الكويت' }
+          get api_v1_tourist_sights_path, params: { country: 'دولة الكويت', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -84,7 +84,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
 
       describe 'and then I enter a incorrect country name and then it' do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: 'Ohio' }
+          get api_v1_tourist_sights_path, params: { country: 'Ohio', api_key: '12345' }
           JSON.parse(response.body, symbolize_names: true)
         end
 
