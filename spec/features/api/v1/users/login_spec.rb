@@ -12,7 +12,7 @@ RSpec.describe 'Users | Login', type: :request do
         password_confirmation: 'password',
         email: 'admin@gmail.com'
       }
-      post api_v1_users_path, headers: headers, params: JSON.generate(user: user)
+      post api_v1_users_path, headers: headers, params: JSON.generate(user)
       JSON.parse(response.body, symbolize_names: true)[:data][:attributes]
     end
     context('Happy Path') do
@@ -23,7 +23,7 @@ RSpec.describe 'Users | Login', type: :request do
             password: 'password'
           }
           post api_v1_users_login_path, headers: headers,
-                                        params: JSON.generate(user: user)
+                                        params: JSON.generate(user)
 
           expect(response).to have_http_status :ok
         end
@@ -34,7 +34,7 @@ RSpec.describe 'Users | Login', type: :request do
             password: 'password'
           }
           post api_v1_users_login_path, headers: headers,
-                                        params: JSON.generate(user: user)
+                                        params: JSON.generate(user)
 
           user_response = JSON.parse(response.body, symbolize_names: true)
 
@@ -56,7 +56,7 @@ RSpec.describe 'Users | Login', type: :request do
             password: 'password'
           }
           post api_v1_users_login_path, headers: headers,
-                                        params: JSON.generate(user: user)
+                                        params: JSON.generate(user)
 
           expect(response).to have_http_status :unauthorized
         end
@@ -66,7 +66,7 @@ RSpec.describe 'Users | Login', type: :request do
             password: 'password'
           }
           post api_v1_users_login_path, headers: headers,
-                                        params: JSON.generate(user: user)
+                                        params: JSON.generate(user)
 
           error_response = JSON.parse(response.body, symbolize_names: true)
 
@@ -82,7 +82,7 @@ RSpec.describe 'Users | Login', type: :request do
             password: 'notcorrect'
           }
           post api_v1_users_login_path, headers: headers,
-                                        params: JSON.generate(user: user)
+                                        params: JSON.generate(user)
 
           expect(response).to have_http_status :unauthorized
         end
@@ -93,7 +93,7 @@ RSpec.describe 'Users | Login', type: :request do
             password: 'notcorrect'
           }
           post api_v1_users_login_path, headers: headers,
-                                        params: JSON.generate(user: user)
+                                        params: JSON.generate(user)
 
           error_response = JSON.parse(response.body, symbolize_names: true)
 
