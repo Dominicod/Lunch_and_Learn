@@ -6,7 +6,27 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from IncorrectCountryException, with: :render_bad_request
 
-  before_action :require_valid_api_key
+  before_action :require_user, :require_api_key
+
+  def require_api_key
+    return unless params[:api_key].nil? || valid_key?
+
+    render_unauthorized('API Key Omitted or Invalid')
+  end
+
+  def valid_key?
+    @current_user.api_key == params[:api_key]
+  end
+
+  def require_user
+    return if current_user
+
+    render_unauthorized('Must be a registered user to access this page')
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 
   def render_unprocessable_entity(exception)
     render json: unprocessable_entity(exception), status: :unprocessable_entity
@@ -45,7 +65,7 @@ class ApplicationController < ActionController::API
 
   def error_message(error)
     ErrorSerializer.new(
-      Error.new({ code: error[:code], status: error[:status], message: error[:message] })
+    Error.new({ code: error[:code], status: error[:status], message: error[:message] })
     ).serializable_json
   end
 
@@ -61,11 +81,5 @@ class ApplicationController < ActionController::API
     end
 
     raise IncorrectCountryException, "Country invalid for: #{params[:country]}"
-  end
-
-  def require_valid_api_key
-    return unless params[:api_key].nil?
-
-    render_unauthorized('API Key Omitted or Invalid')
   end
 end
