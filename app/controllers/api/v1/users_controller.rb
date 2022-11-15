@@ -21,7 +21,7 @@ module Api
       end
 
       def logout
-        user = User.find_by(api_key: user_params[:api_key])
+        user = User.find_by(api_key: params[:api_key])
         raise VerificationFailedException, 'Verification Failed, API Key Invalid' if user.nil?
 
         user.update(api_key: nil)
