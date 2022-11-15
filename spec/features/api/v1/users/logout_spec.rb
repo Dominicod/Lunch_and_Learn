@@ -8,7 +8,6 @@ RSpec.describe 'Users | Logout', type: :request do
     let(:user) { create(:user) }
     context('Happy Path') do
       describe 'and I send in the correct request body attributes to logout' do
-
         it 'returns valid response' do
           post api_v1_users_logout_path, headers: headers, params: JSON.generate(api_key: user.api_key)
 
