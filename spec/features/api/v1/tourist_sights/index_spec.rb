@@ -7,7 +7,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
     context('Happy Path') do
       describe 'I enter ?country=france and then it' do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: 'france' }
+          get api_v1_tourist_sights_path, params: { country: 'france', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -29,7 +29,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
     context('Sad Path') do
       describe "I enter ?country='' and then it" do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: '' }
+          get api_v1_tourist_sights_path, params: { country: '', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -45,7 +45,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
         let!(:tourist_response) do
           mocked_country = Country.new({ name: { common: 'Laos' } })
           allow(CountryFacade).to receive(:random_country).and_return(mocked_country)
-          get api_v1_tourist_sights_path
+          get api_v1_tourist_sights_path, params: { api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -67,7 +67,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
     context('Edge Case') do
       describe 'and then I insert a non-ASCII supported list of characters into params (Edge Case)' do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: 'دولة الكويت' }
+          get api_v1_tourist_sights_path, params: { country: 'دولة الكويت', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -84,7 +84,7 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
 
       describe 'and then I enter a incorrect country name and then it' do
         let!(:tourist_response) do
-          get api_v1_tourist_sights_path, params: { country: 'Ohio' }
+          get api_v1_tourist_sights_path, params: { country: 'Ohio', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -96,6 +96,22 @@ RSpec.describe 'Tourist Sights | Index', :vcr, type: :request do
           expect(tourist_response[:errors][0][:status]).to eq 'Bad Request'
           expect(tourist_response[:errors][0][:message]).to eq 'Country invalid for: Ohio'
           expect(tourist_response[:errors][0][:code]).to eq 400
+        end
+      end
+
+      describe 'and if I do not provide an API_KEY I am given a 401 auth error' do
+        let!(:tourist_response) do
+          get api_v1_tourist_sights_path, params: { country: 'Laos' }
+          JSON.parse(response.body, symbolize_names: true)
+        end
+
+        it { expect(response).to have_http_status :unauthorized }
+
+        it 'has correct attributes' do
+          expect(tourist_response[:errors]).to be_an Array
+          expect(tourist_response[:errors][0][:status]).to eq 'Unauthorized'
+          expect(tourist_response[:errors][0][:message]).to eq 'API Key Omitted or Invalid'
+          expect(tourist_response[:errors][0][:code]).to eq 401
         end
       end
     end

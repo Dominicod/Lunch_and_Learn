@@ -5,6 +5,7 @@ module Api
     class RecipesController < ApplicationController
       before_action :random_country,
                     :valid_country_check,
+                    :require_api_key,
                     only: [:index]
       def index
         render json: RecipeSerializer.new(RecipeFacade.create_recipes(query_params[:country]))

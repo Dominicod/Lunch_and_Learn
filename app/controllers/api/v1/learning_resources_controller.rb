@@ -3,6 +3,7 @@
 module Api
   module V1
     class LearningResourcesController < ApplicationController
+      before_action :require_api_key
       def index
         render json: LearningResourceSerializer.new(
           LearningResourceFacade.create_learning_resource(query_params[:country])
