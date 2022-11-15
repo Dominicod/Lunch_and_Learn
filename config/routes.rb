@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  post '/api/v1/users/login', to: 'api/v1/users#login'
+  post '/api/v1/users/logout', to: 'api/v1/users#logout'
+
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create] do
