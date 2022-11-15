@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   rescue_from ActionController::ParameterMissing, with: :render_bad_request
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from IncorrectCountryException, with: :render_bad_request
+  rescue_from VerificationFailedException, with: :render_unauthorized
 
   before_action :require_api_key
 
