@@ -10,6 +10,11 @@ module Api
         render json: { success: 'Favorite added successfully' }, status: :created
       end
 
+      def index
+        user = User.find_by(api_key: params[:api_key])
+        render json: FavoriteSerializer.new(user.favorites)
+      end
+
       private
 
       def favorite_params
