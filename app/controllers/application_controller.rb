@@ -7,16 +7,14 @@ class ApplicationController < ActionController::API
   rescue_from IncorrectCountryException, with: :render_bad_request
   rescue_from VerificationFailedException, with: :render_unauthorized
 
-  before_action :require_api_key
-
   def require_api_key
-    return unless params[:user][:api_key].nil? || valid_key?
+    return if !params[:api_key].nil? && valid_key?
 
     render_unauthorized('API Key Omitted or Invalid')
   end
 
   def valid_key?
-    User.find(api_key: params[:user][:api_key])
+    User.find_by(api_key: params[:api_key])
 
   rescue ActiveRecord::RecordNotFound
     false

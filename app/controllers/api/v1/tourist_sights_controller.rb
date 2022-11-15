@@ -5,6 +5,7 @@ module Api
     class TouristSightsController < ApplicationController
       before_action :random_country,
                     :valid_country_check,
+                    :require_api_key,
                     only: [:index]
       def index
         render json: TouristSightSerializer.new(TourismSightFacade.create_sights(sight_params[:country]))

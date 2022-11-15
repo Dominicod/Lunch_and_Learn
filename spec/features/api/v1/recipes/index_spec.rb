@@ -7,7 +7,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
     context('Happy Path') do
       describe 'I enter ?country=thailand and then it' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'thailand', api_key: '12345' }
+          get api_v1_recipes_path, params: { country: 'thailand', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -30,7 +30,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
     context('Sad Path') do
       describe 'I enter ?country=Djibouti and then it' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'Djibouti', api_key: '12345' }
+          get api_v1_recipes_path, params: { country: 'Djibouti', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -42,7 +42,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
         end
 
         it 'returns empty array if no string passed to param' do
-          get api_v1_recipes_path, params: { country: '', api_key: '12345' }
+          get api_v1_recipes_path, params: { country: '', api_key: create(:user).api_key }
           response_recipe = JSON.parse(response.body, symbolize_names: true)
 
           expect(response_recipe).to have_key(:data)
@@ -54,7 +54,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
         let!(:recipes_response) do
           mocked_country = Country.new({ name: { common: 'Laos' } })
           allow(CountryFacade).to receive(:random_country).and_return(mocked_country)
-          get api_v1_recipes_path, params: { api_key: '12345' }
+          get api_v1_recipes_path, params: { api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -77,7 +77,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
     context('Edge Case') do
       describe 'and then I insert a non-ASCII supported list of characters into params (Edge Case)' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'دولة الكويت', api_key: '12345' }
+          get api_v1_recipes_path, params: { country: 'دولة الكويت', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -94,7 +94,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
 
       describe 'and then I enter a incorrect country name and then it' do
         let!(:recipes_response) do
-          get api_v1_recipes_path, params: { country: 'Ohio', api_key: '12345' }
+          get api_v1_recipes_path, params: { country: 'Ohio', api_key: create(:user).api_key }
           JSON.parse(response.body, symbolize_names: true)
         end
 
@@ -106,6 +106,22 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do
           expect(recipes_response[:errors][0][:status]).to eq 'Bad Request'
           expect(recipes_response[:errors][0][:message]).to eq 'Country invalid for: Ohio'
           expect(recipes_response[:errors][0][:code]).to eq 400
+        end
+      end
+
+      describe 'and if I do not provide an API_KEY I am given a 401 auth error' do
+        let!(:recipes_response) do
+          get api_v1_recipes_path, params: { country: 'Laos' }
+          JSON.parse(response.body, symbolize_names: true)
+        end
+
+        it { expect(response).to have_http_status :unauthorized }
+
+        it 'has correct attributes' do
+          expect(recipes_response[:errors]).to be_an Array
+          expect(recipes_response[:errors][0][:status]).to eq 'Unauthorized'
+          expect(recipes_response[:errors][0][:message]).to eq 'API Key Omitted or Invalid'
+          expect(recipes_response[:errors][0][:code]).to eq 401
         end
       end
     end

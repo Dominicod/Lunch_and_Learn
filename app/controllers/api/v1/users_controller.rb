@@ -3,7 +3,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      skip_before_action :require_api_key, only: %i[create login]
+      before_action :require_api_key, except: %i[create login]
       def create
         user = User.create!(user_params)
         user.update(api_key: SecureRandom.hex(15))
