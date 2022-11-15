@@ -46,6 +46,9 @@
 8. [Registration End Points](#registration-end-points)
     1. [Create](#registration-create)
 
+9. [Tourist Sights End Points](#tourist-sights-end-points)
+    1. [Index](#tourist-sights-index)
+
 
 ## Set Up
 
