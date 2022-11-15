@@ -9,13 +9,13 @@ class ApplicationController < ActionController::API
   before_action :require_api_key
 
   def require_api_key
-    return unless params[:api_key].nil? || valid_key?
+    return unless params[:user][:api_key].nil? || valid_key?
 
     render_unauthorized('API Key Omitted or Invalid')
   end
 
   def valid_key?
-    User.find(api_key: params[:api_key])
+    User.find(api_key: params[:user][:api_key])
 
   rescue ActiveRecord::RecordNotFound
     false
