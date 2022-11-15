@@ -38,18 +38,20 @@ In order to use this application, you must sign up for an API Key at [Registrati
 3. [Database Structure](#database-structure)
 4. [Deployment](#deployment)
 5. [Testing Instructions](#testing-instructions)
-6. [Registration End Points](#registration-end-points)
-    1. [Create](#registration-create)
-7. [Login End Points](#registration-end-points)
-    1. [Login](#login)
-8. [Logout End Points](#registration-end-points)
-    1. [Logout](#logout)
-9. [Recipes End Points](#recipe-end-points)
-    1. [Index](#recipes-index)
-10. [Learning Resources End Points](#learning-resources-end-points)
-    1. [Index](#learning-resources-index)
-   
-
+6. End Points
+   1. [Registration End Points](#registration-end-points)
+      1. [Create](#registration-create)
+   2. [Login End Points](#registration-end-points)
+      1. [Login](#login)
+   3. [Logout End Points](#registration-end-points)
+      1. [Logout](#logout)
+   4. [Recipes End Points](#recipe-end-points)
+      1. [Index](#recipes-index)
+   5. [Learning Resources End Points](#learning-resources-end-points)
+      1. [Index](#learning-resources-index)
+   6. [Favorites End Points](#favorites-end-points)
+      1. [Index](#favorites-index)
+      2. [Create](#favorites-create)
 
 ## Set Up
 
@@ -392,6 +394,66 @@ or returns an index of Tourist Sights for given country in a 20,000 meter radius
     {...}
     {...}
   ]
+}
+```
+
+## Favorites End Points
+
+### Favorites Index
+Returns a index of favorites for a given User
+
+*An error will be returned if API Key is invalid or not present*
+
+*Key can be passed in the body or in query params*
+
+`GET https://lunch-and-learn-2022.herokuapp.com/api/v1/favorites?api_key={KEY}`
+
+```json
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "favorite",
+            "attributes": {
+                "recipe_title": "test",
+                "country": "test",
+                "recipe_link": "test",
+                "created_at": "2022-11-15T22:39:56.010Z"
+            }
+        },
+        {
+            "id": "2",
+            "type": "favorite",
+            "attributes": {
+                "recipe_title": "test",
+                "country": "dd",
+                "recipe_link": "test",
+                "created_at": "2022-11-15T22:49:27.506Z"
+            }
+        }
+    ]
+}
+```
+### Favorites Create
+Creates a favorite for a specified User
+
+*An error will be returned if API Key is invalid or not present, as well as missing params*
+
+Correct Example request:
+```json
+{
+    "api_key": "a5f78dbc0163bc9bedb4ef53c7595b",
+    "recipe_title": "test",
+    "recipe_link": "test",
+    "country": "test"
+}
+```
+
+`POST https://lunch-and-learn-2022.herokuapp.com/api/v1/favorites`
+
+```json
+{
+    "success": "Favorite added successfully"
 }
 ```
 
