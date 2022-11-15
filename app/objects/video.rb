@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Video # rubocop:todo Style/Documentation
+class Video
   attr_reader :title,
               :youtube_video_id
 

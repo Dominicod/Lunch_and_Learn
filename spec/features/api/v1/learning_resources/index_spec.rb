@@ -2,8 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Learning Resources | Index', :vcr, type: :request do # rubocop:todo Metrics/BlockLength
-  # rubocop:todo Metrics/BlockLength
+RSpec.describe 'Learning Resources | Index', :vcr, type: :request do
   describe 'As a User, when I visit /learning_resources and then enter the query param of a country' do
     context('Happy Path') do
       describe 'I enter ?country=laos and then it' do
@@ -73,5 +72,4 @@ RSpec.describe 'Learning Resources | Index', :vcr, type: :request do # rubocop:t
       end
     end
   end
-  # rubocop:enable Metrics/BlockLength
 end

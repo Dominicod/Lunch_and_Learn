@@ -232,6 +232,94 @@ Correct Example request:
 }
 ```
 
+## Tourist Sights End Points
+
+### Tourist Sights Index
+Returns a index of Tourist Sights for a random country in a 20,000 meter radius around its capital
+
+*If country does not have any sights or if country is invalid, a bad request will be presented*
+
+`GET https://lunch-and-learn-2022.herokuapp.com/api/v1/tourist_sights`
+
+```json
+{
+    "data": [
+        {
+            "id": null,
+            "type": "tourist_sight",
+            "attributes": {
+                "name": "Marmorkirken",
+                "address": "Marble Church, Frederiksgade, 1265 Copenhagen, Denmark",
+                "place_id": "51ca627373dc2d2940590ba7cf09add74b40f00102f901617a85010000000092030c4d61726d6f726b69726b656e"
+            }
+        },
+        {
+            "id": null,
+            "type": "tourist_sight",
+            "attributes": {
+                "name": "Rundetårn",
+                "address": "Round Tower, Købmagergade, Copenhagen, Denmark",
+                "place_id": "514a1b4f79ce2629405944a5cae536d74b40f00102f901c1244a3c0000000092030a52756e646574c3a5726e"
+            }
+        },
+        {
+            "id": null,
+            "type": "tourist_sight",
+            "attributes": {
+                "name": "Vor Frue Kirke",
+                "address": "Church of Our Lady, Dyrkøb, 1166 Copenhagen, Denmark",
+                "place_id": "5198aa38cf3d25294059e6f47427f6d64b40f00102f901b65a84010000000092030e566f722046727565204b69726b65"
+            }
+        },
+      {...}
+      {...}
+      {...}
+    ]
+}
+```
+
+or returns an index of Tourist Sights for given country in a 20,000 meter radius around its capital
+
+*If country does not have any sights or if country is invalid, a bad request will be presented*
+
+`GET https://lunch-and-learn-2022.herokuapp.com/api/v1/tourist_sights?country=Laos`
+```json
+{
+  "data": [
+    {
+      "id": null,
+      "type": "tourist_sight",
+      "attributes": {
+        "name": "ປະຕູໄຊ",
+        "address": "Patuxai, Patuxay, 01003 Vientiane Capital, Laos",
+        "place_id": "516b35da6097a7594059e82368727bf83140f00102f90136427a0200000000920312e0ba9be0bab0e0ba95e0bab9e0bb84e0ba8a"
+      }
+    },
+    {
+      "id": null,
+      "type": "tourist_sight",
+      "attributes": {
+        "name": "Chao Fa Ngum Monument",
+        "address": "Chao Fa Ngum Monument, Rue Samsènethai, 01001 Vientiane Capital, Laos",
+        "place_id": "5192556c2725a65940594b3e75f7eff73140f00102f90106d14d16000000009203154368616f204661204e67756d204d6f6e756d656e74"
+      }
+    },
+    {
+      "id": null,
+      "type": "tourist_sight",
+      "attributes": {
+        "name": "King Sai Setthathirath",
+        "address": "King Sai Setthathirath, That Luang Kang, Alley 5, 01160 Vientiane Capital, Laos",
+        "place_id": "5141f6306aada85940599c74f910f9f93140f00103f9013223f627000000009203164b696e67205361692053657474686174686972617468"
+      }
+    }
+    {...}
+    {...}
+    {...}
+  ]
+}
+```
+
 ## Contributions
 <a href="https://github.com/Dominicod/rails-engine-lite/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Dominicod/rails-engine-lite" />

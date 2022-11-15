@@ -2,8 +2,10 @@
 
 module Api
   module V1
-    class RecipesController < ApplicationController # rubocop:todo Style/Documentation
-      before_action :random_country, only: [:index]
+    class RecipesController < ApplicationController
+      before_action :random_country,
+                    :valid_country_check,
+                    only: [:index]
       def index
         render json: RecipeSerializer.new(RecipeFacade.create_recipes(query_params[:country]))
       end
@@ -12,10 +14,6 @@ module Api
 
       def query_params
         params.permit(:country)
-      end
-
-      def random_country
-        params[:country] = CountryFacade.random_country.name if params[:country].nil?
       end
     end
   end

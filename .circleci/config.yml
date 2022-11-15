@@ -44,7 +44,7 @@ jobs: # a collection of steps
           command: bundle exec rspec
       - run:
           name: Run rubocop
-          command: bundle exec rubocop --autocorrect --disable-uncorrectable
+          command: bundle exec rubocop --autocorrect
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results

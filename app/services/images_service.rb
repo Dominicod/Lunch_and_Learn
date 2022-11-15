@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ImagesService # rubocop:todo Style/Documentation
+class ImagesService
   include ServiceHelperModule
   def self.country_images(country)
     parse(conn.get("?query=#{ServiceHelperModule.encode_uri(country)}"))

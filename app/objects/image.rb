@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Image # rubocop:todo Style/Documentation
+class Image
   attr_reader :alt_tag,
               :url
 

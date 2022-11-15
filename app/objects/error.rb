@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Error # rubocop:todo Style/Documentation
+class Error
   attr_reader :code,
               :status,
               :message

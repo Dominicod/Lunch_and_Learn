@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class VideoService # rubocop:todo Style/Documentation
+class VideoService
   include ServiceHelperModule
   def self.country_video(country)
     parse(conn.get("?q=#{ServiceHelperModule.encode_uri(country)}"))

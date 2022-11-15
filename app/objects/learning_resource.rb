@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class LearningResource # rubocop:todo Style/Documentation
+class LearningResource
   attr_reader :id,
               :country,
               :video,

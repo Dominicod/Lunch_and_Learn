@@ -2,8 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics/BlockLength
-  # rubocop:todo Metrics/BlockLength
+RSpec.describe 'Recipes | Index', :vcr, type: :request do
   describe 'As a User, when I visit /recipes and then enter the query param of a country' do
     context('Happy Path') do
       describe 'I enter ?country=thailand and then it' do
@@ -28,7 +27,7 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
       end
     end
 
-    context('Sad Path') do # rubocop:todo Metrics/BlockLength
+    context('Sad Path') do
       describe 'I enter ?country=Djibouti and then it' do
         let!(:recipes_response) do
           get api_v1_recipes_path, params: { country: 'Djibouti' }
@@ -44,15 +43,16 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
 
         it 'returns empty array if no string passed to param' do
           get api_v1_recipes_path, params: { country: '' }
+          response_recipe = JSON.parse(response.body, symbolize_names: true)
 
-          expect(recipes_response).to have_key(:data)
-          expect(recipes_response[:data]).to eq []
+          expect(response_recipe).to have_key(:data)
+          expect(response_recipe[:data]).to eq []
         end
       end
 
       describe 'I do not enter a query param for country and then it' do
         let!(:recipes_response) do
-          mocked_country = Country.new({ name: { common: 'United States' } })
+          mocked_country = Country.new({ name: { common: 'Laos' } })
           allow(CountryFacade).to receive(:random_country).and_return(mocked_country)
           get api_v1_recipes_path
           JSON.parse(response.body, symbolize_names: true)
@@ -81,11 +81,14 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
           JSON.parse(response.body, symbolize_names: true)
         end
 
-        it { expect(response).to have_http_status :ok }
+        it { expect(response).to have_http_status :bad_request }
 
-        it 'has correct attributes' do
-          expect(recipes_response).to have_key(:data)
-          expect(recipes_response[:data]).to eq []
+        it 'returns an error stating a country is required' do
+          expect(recipes_response).to have_key(:errors)
+          expect(recipes_response[:errors]).to be_an Array
+          expect(recipes_response[:errors][0][:status]).to eq 'Bad Request'
+          expect(recipes_response[:errors][0][:message]).to eq 'Country invalid for: دولة الكويت'
+          expect(recipes_response[:errors][0][:code]).to eq 400
         end
       end
 
@@ -95,11 +98,16 @@ RSpec.describe 'Recipes | Index', :vcr, type: :request do # rubocop:todo Metrics
           JSON.parse(response.body, symbolize_names: true)
         end
 
-        xit { expect(response).to have_http_status :not_found }
+        it { expect(response).to have_http_status :bad_request }
 
-        xit 'it returns an array, stating the country does not exist'
+        it 'returns an error stating a country is required' do
+          expect(recipes_response).to have_key(:errors)
+          expect(recipes_response[:errors]).to be_an Array
+          expect(recipes_response[:errors][0][:status]).to eq 'Bad Request'
+          expect(recipes_response[:errors][0][:message]).to eq 'Country invalid for: Ohio'
+          expect(recipes_response[:errors][0][:code]).to eq 400
+        end
       end
     end
   end
-  # rubocop:enable Metrics/BlockLength
 end
