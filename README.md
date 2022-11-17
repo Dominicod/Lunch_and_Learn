@@ -2,7 +2,7 @@
   <img src="https://blog.dominwrites.com/wp-content/uploads/2022/07/cropped-cropped-cropped-D-1.png" />
 </p>
 <center><h1>Info</h1></center>
- This app will allow users to search for recipes by country, favorite recipes, and learn more about a particular country. This application exposes an API that aggregates data from five external APIs.
+ This app will allow users to search for recipes by country, favorite recipes, and learn more about a particular country. This application exposes an API that aggregates data from five external APIs and exposes them through JSON:API standard responses.
 
 ## About the Project
 
