@@ -8,13 +8,17 @@
 
 >[Deployed BE Heroku Site](https://lunch-and-learn-2022.herokuapp.com/api/v1)
 
-In order to use this application, you must sign up for an API Key at [Registration End Points](#registration-end-points)
+#### In order to use this application, you must sign up for an API Key at [Registration End Points](#registration-end-points)
+
+#### You must also have Docker installed, as well as Compose *(I recommend having Docker Desktop)*. Documentation: https://docs.docker.com/compose/install/
+
 
 ## Built With
 ![RoR](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 ![pgsql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![heroku](https://img.shields.io/badge/heroku-316192?style=for-the-badge&logo=heroku&logoColor=white)
 ![circleci](https://img.shields.io/badge/circleci-316192?style=for-the-badge&logo=circle&logoColor=white)
+![docker](https://img.shields.io/badge/docker-316192?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Gems
 ![rspec-rails](https://img.shields.io/gem/v/rspec-rails?label=rspec-rails&style=flat-square)
@@ -55,6 +59,10 @@ In order to use this application, you must sign up for an API Key at [Registrati
 
 ## Set Up
 
+#### ENV Variables
+
+`PGHOST` = 'db'
+
 #### API Keys:
 * https://developer.edamam.com/edamam-docs-recipe-api (`ED_APP_ID`, `ED_APP_KEY`)
 * https://unsplash.com/documentation (`UNSPLASH_CLIENT`)
@@ -62,29 +70,28 @@ In order to use this application, you must sign up for an API Key at [Registrati
 * https://apidocs.geoapify.com/docs/places/#categories (`PLACES_KEY`)
 
 - Clone this repo
-- `bundle install`
-- `bundle exec figaro install`
-- Place required API_KEY's inside of `config/application.yml`
-- `rails s`
+- `touch config/application.yml`
+- Place required API_KEY's + ENV_Variables inside of `config/application.yml`
+- `docker-compose up`
 
 ## Database Creation
-- `rails db:{create,migrate,seed}`
+- `docker-compose up`
 
 ## Database Structure
 
 ![database](app/assets/images/database.png)
 
 ## Deployment
-- `rails s`
+- `docker-compose up`
 
 ## Testing Instructions
 
 - Clone this repo
 - in terminal (apple or integrated)
-    * `bundle install`
-    * `bundle exec figaro install`
+    * `touch config/application.yml`
     * Place required API_KEY's inside of `config/application.yml`
-    * `bundle exec rspec`
+    * `docker-compose up`
+    * `docker compose run web bundle exec rspec`
   
 ## Registration End Points
 
