@@ -59,6 +59,10 @@
 
 ## Set Up
 
+#### ENV Variables
+
+`PGHOST` = 'db'
+
 #### API Keys:
 * https://developer.edamam.com/edamam-docs-recipe-api (`ED_APP_ID`, `ED_APP_KEY`)
 * https://unsplash.com/documentation (`UNSPLASH_CLIENT`)
@@ -67,7 +71,7 @@
 
 - Clone this repo
 - `touch config/application.yml`
-- Place required API_KEY's inside of `config/application.yml`
+- Place required API_KEY's + ENV_Variables inside of `config/application.yml`
 - `docker-compose up`
 
 ## Database Creation
