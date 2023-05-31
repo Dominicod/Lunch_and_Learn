@@ -6,12 +6,9 @@
 
 ## About the Project
 
->[Deployed BE Heroku Site](https://lunch-and-learn-2022.herokuapp.com/api/v1)
-
 #### In order to use this application, you must sign up for an API Key at [Registration End Points](#registration-end-points)
 
 #### You must also have Docker installed, as well as Compose *(I recommend having Docker Desktop)*. Documentation: https://docs.docker.com/compose/install/
-
 
 ## Built With
 ![RoR](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
